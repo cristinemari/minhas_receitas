@@ -1,0 +1,14 @@
+<%= div_for comment do %>
+	<br/>
+  <div class="author">
+    <div class="avatar"><%= gravatar_image_tag comment.email %></div>
+    <div class="meta">
+      <h4 class="name"><%= comment_author(comment.author, comment.url) %></h4>
+      <i class="date">há <%= time_ago_in_words comment.created_at %></i>
+    </div>
+  </div>
+
+  <div class="body" style="margin-bottom:20px;">
+    <%= comment.body %>
+  </div>
+<% end %>

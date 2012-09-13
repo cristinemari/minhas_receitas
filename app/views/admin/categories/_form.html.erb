@@ -1,0 +1,10 @@
+<%= form_for [:admin, @category] do |f| %>
+  <%= error_messages_for @category %>
+
+  <div class="field">
+    <%= f.text_field :name, :placeholder => "Nome da Categoria" %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class => "btn btn-success btn-small" %> <%= link_to "cancel", admin_categories_path, :class => "btn btn-danger btn-small" %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<h1><%= t"recipe.index.title" %></h1>
+<div class='row'>
+  <div class='span12'>
+    <div class='well'>
+    <%- if @recipes.present? -%>
+
+      <% @recipes.each do |recipe| %>
+        <hr>
+        <h2><%= link_to recipe.title.titleize, recipe %></h2>
+        <h3><%= recipe.category.name %></h3>
+
+        <div id="recipe">
+          <p>
+            <%= simple_format excerpt(recipe.description, "", 50) %> 
+            <%= link_to "continue ...", recipe, :class => "btn btn-info btn-mini" %>
+          </p>       
+        </div>
+        </hr>
+      <% end %>
+
+    <% else %>
+      <p>Teremos novas receitas em breve.</p>
+    <% end %>
+
+    </div>
+  </div>
+</div>

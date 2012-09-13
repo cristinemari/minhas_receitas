@@ -1,0 +1,15 @@
+<div id="column2">
+
+  <h3>Busca de receitas</h3>
+
+  <%= form_tag recipes_path, :method => :get do %>
+    <%= text_field_tag :search, "",
+      :placeholder => "Ingrediente ou Receita",
+      :size => 30,
+      :type => "text",
+      :class => "input-medium search-query" %>      
+  	<button type="submit" class="btn">Buscar</button>
+  <% end %>
+
+
+</div>

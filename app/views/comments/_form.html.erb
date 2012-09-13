@@ -1,0 +1,25 @@
+<%= form_for [ recipe, comment ] do |f| %>
+  
+  <%= error_messages_for comment %>
+  <hr>
+  <div class="field">
+    <%= f.label :author %><br />
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body, :rows => 10, :cols => 90 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+</hr>
+<% end %>

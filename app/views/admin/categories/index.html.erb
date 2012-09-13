@@ -1,0 +1,27 @@
+<div class='row'>
+  <div class='span12'>
+    <div class='well'>
+      
+      <h2><%= t"admin.category.index.name" %></h2>
+
+      <% if @categories.present? %>
+      <ul class="list">
+        <% @categories.each do |category| %>
+          <h3><%= category.name %></h3>
+
+          <p>
+            <%= link_to_edit [:edit, :admin, category], :class => "btn btn-info btn-mini" %>
+            <%= link_to_destroy [:admin, category], :class => "btn btn-danger btn-mini" %>
+          </p>
+        <% end %>
+      </ul>
+      <% else %>
+        <p>A categoria ainda não está incluida.</p>
+      <% end %>
+ 
+    </div>
+  </div>
+</div>
+<p>
+  <%= link_to t(:new_category), new_admin_category_path, :class => "btn btn-success btn-small" %>
+</p> 

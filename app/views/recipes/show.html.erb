@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+	<div class="span8">
+
+		<h2><%= @recipe.title.titleize %></h2>
+
+		<h3>em <%= @recipe.category.name %></h3>
+
+		<h3>Nota <%= @recipe.grade %></h3>
+		
+		<hr/>
+
+		<h4>Sobre a receita</h4>
+		<p><%= simple_format @recipe.description %></p>
+
+		<h4>Ingredientes</h4>
+		<div class="ingredientes">
+			<%= simple_format @recipe.ingredients %>
+		</div>
+		
+		<h4>Modo de preparo</h4>
+		<p><%= simple_format @recipe.preparation %></p>
+
+		<hr/>
+		<%= link_to t(:back), recipes_path, :class => "btn btn-primary btn-mini" %>
+	</div>
+
+	<div class="span4">
+		<%= image_tag @recipe.image %>
+		<br/>
+		<br/>
+		<br/>
+		<h3>Comentários</h3>
+		<div id="comments">
+		<%- if @recipe.comments.any? -%>
+		  <%= render :partial => @recipe.comments %>
+		<%- else -%>
+		  <p>Nobody commented this recipe yet.</p>
+		<%- end -%>
+		</div>
+		<%= render "comments/form", :recipe => @recipe, :comment => Comment.new %>
+	</div>
+</div>
+
+

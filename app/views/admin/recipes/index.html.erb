@@ -1,0 +1,29 @@
+<div class='row'>
+  <div class='span12'>
+    <div class='well'>
+
+      <h2><%= t"recipe.index.title" %></h2>
+      <br/>
+      <% if @recipes.present? %>
+      <ul class="list">
+        <% @recipes.each do |recipe| %>
+          <h3>
+            <%= link_to recipe.title.titleize, admin_recipe_path(recipe) %> | 
+            <%= recipe.category.name %>
+          </h3>
+          
+          <p>
+            <%= link_to_edit [:edit, :admin, recipe], :class => "btn btn-info btn-mini" %>
+            <%= link_to_destroy [:admin, recipe], :class => "btn btn-danger btn-mini" %>
+          </p>
+        <% end %>
+      </ul>
+      <% else %>
+        <p>Teremos novas receitas em breve.</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+<p>
+  <%= link_to t(:new_recipe), new_admin_recipe_path, :class => "btn btn-success btn-small" %>
+</p>

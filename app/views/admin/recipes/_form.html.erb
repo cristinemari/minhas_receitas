@@ -1,0 +1,48 @@
+<%= form_for [:admin, @recipe] do |f| %>
+  <%= error_messages_for @recipe %>
+
+  <div class="field">
+    <%= f.label :author_id, "Receita de: " %>
+    <%= f.collection_select :author_id, @authors, :id, :full_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, :placeholder => "Nome da Receita", :class => "title" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.text_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_id %><br />
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :grade %><br />
+    <%= f.select :grade, options_for_select([[ "Nota 10", 10 ], ["Nota 9", 9], ["Nota 8", 8], ["Nota 7", 7], ["Nota 6", 6], ["Nota 5", 5], ["Nota 4", 4], ["Nota 3", 3], ["Nota 2", 2], ["Nota 1", 1], ["Nota 0", 0]]) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :cols => 100, :rows => 10 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ingredients %><br />
+    <%= f.text_area :ingredients, :cols => 100, :rows => 10 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :preparation %><br />
+    <%= f.text_area :preparation, :cols => 100, :rows => 10 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Salvar", :class => "btn btn-success btn-small" %>     
+    <%= link_to t(:back), admin_recipes_path, :class => "btn btn-primary btn-small" %>
+  </div>
+<% end %>
